@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark One v1</title>
+
+<style>
+*{ box-sizing:border-box; font-family: Arial, Helvetica, sans-serif; }
+
+body{
+    margin:0;
+    height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+        url("bg.jpg") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
+
+.card{
+    width:340px;
+    background:rgba(15,15,15,.88);
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,0,0,.2);
+}
+
+.title{
+    color:#ff2b2b;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.logo{
+    width:150px; height:150px; border-radius:50%;
+    margin:0 auto 15px;
+    background:radial-gradient(circle at top,#ff5a5a,#7a0000);
+    box-shadow:0 0 30px rgba(255,0,0,.5);
+}
+
+h2{ margin:5px 0; }
+.sub{ font-size:13px; color:#aaa; margin-bottom:18px; }
+
+.label{
+    text-align:left; font-size:12px; color:#bbb;
+    margin:10px 0 6px;
+}
+
+input, select{
+    width:100%;
+    padding:14px;
+    border-radius:14px;
+    background:#111; color:#fff;
+    border:1px solid #333; outline:none;
+}
+
+input::placeholder{ color:#666; }
+
+button{
+    margin-top:18px; width:100%;
+    padding:15px; border:none; border-radius:30px;
+    font-weight:bold; letter-spacing:1px;
+    background:linear-gradient(90deg,#ff2b2b,#ff00aa);
+    cursor:pointer; font-size:15px;
+}
+
+button:disabled{ opacity:.6; cursor:not-allowed; }
+
+.status{
+    margin-top:14px;
+    font-size:13px;
+    color:#00ff9c;
+    display:none;
+}
+
+.footer{ margin-top:15px; font-size:11px; color:#555; }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="title">DARK ONE V1</div>
+    <div class="logo"></div>
+
+    <h2>Dark One v1</h2>
+    <div class="sub">WhatsApp Menu (Demo)</div>
+
+    <!-- Nomor WA -->
+    <div class="label">Nomor :</div>
+    <input type="tel" id="wa" placeholder="+62xxxxxxxxxx">
+
+    <!-- Pilih Opsi -->
+    <div class="label">Pilih Opsi</div>
+    <select id="mode">
+        <option>CRASH IPHONE</option>
+        <option>CRASH ANDROID</option>
+        <option>FORCLOSE</option>
+        <option>INVISIBLE</option>
+    </select>
+
+    <button id="sendBtn" onclick="send()">SEND BUG ⬆️</button>
+
+    <div class="status" id="status">✅ BUG TELAH DI KIRIM — TUNGGU 5 DETIK</div>
+
+    <div class="footer">VIP METODE DEMO APPS</div>
+</div>
+
+<script>
+function send(){
+    const wa = document.getElementById("wa").value.trim();
+    const status = document.getElementById("status");
+    const btn = document.getElementById("sendBtn");
+
+    // (Demo) validasi sederhana
+    if(!wa){
+        alert("Nomor WA belum diisi");
+        return;
+    }
+
+    status.style.display = "block";
+    btn.disabled = true;
+
+    // Tampilkan pesan 5 detik
+    setTimeout(()=>{
+        status.style.display = "none";
+        btn.disabled = false;
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
